@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Respect user motion preferences and enforce gentle transitions for TEA accessibility */
+  * {
+    scroll-behavior: smooth;
+  }
+
+  /* High-visibility, low-stress focus rings for WCAG 2.2 AA/AAA keyboard and switch navigation */
+  *:focus-visible {
+    outline: 3px solid #6B9AC4;
+    outline-offset: 2px;
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.015);
+  }
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 4s ease-in-out infinite;
+}
+
